@@ -1,0 +1,13 @@
+Excel.LaunchExcel.LaunchAndOpenUnderExistingProcess Path: $'''C:\\Users\\rajat\\OneDrive\\Desktop\\ex\\Customers.xlsx''' Visible: True ReadOnly: False Instance=> ExcelInstance
+Excel.Attach DocumentName: $'''Customers.xlsx''' Instance=> ExcelInstance2
+Excel.InsertRow Instance: ExcelInstance Index: 1
+Excel.WriteToExcel.WriteCell Instance: ExcelInstance Value: $'''First Name''' Column: $'''A''' Row: 1
+Excel.WriteToExcel.WriteCell Instance: ExcelInstance Value: $'''Last Name''' Column: $'''B''' Row: 1
+Excel.WriteToExcel.WriteCell Instance: ExcelInstance Value: $'''Age''' Column: $'''C''' Row: 1
+Excel.WriteToExcel.WriteCell Instance: ExcelInstance Value: $'''State''' Column: $'''D''' Row: 1
+Excel.WriteToExcel.WriteCell Instance: ExcelInstance Value: $'''City''' Column: $'''E''' Row: 1
+Excel.GetFirstFreeRowOnColumn Instance: ExcelInstance Column: $'''D''' FirstFreeRowOnColumn=> FirstFreeRowOnColumn
+Excel.CopyCellsFromExcel.CopyCells Instance: ExcelInstance StartColumn: $'''D''' StartRow: 1 EndColumn: $'''D''' EndRow: FirstFreeRowOnColumn - 1
+Excel.PasteCellsToExcel.PasteAt Instance: ExcelInstance Column: $'''F''' Row: 1
+Excel.DeleteColumn Instance: ExcelInstance Column: $'''D'''
+Excel.CloseExcel.CloseAndSave Instance: ExcelInstance
