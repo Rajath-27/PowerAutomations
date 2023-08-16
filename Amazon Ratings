@@ -1,0 +1,6 @@
+WebAutomation.LaunchChrome.LaunchChrome Url: $'''https://www.amazon.in/gp/bestsellers/books''' WindowState: WebAutomation.BrowserWindowState.Normal ClearCache: False ClearCookies: False WaitForPageToLoadTimeout: 60 Timeout: 60 BrowserInstance=> Browser
+WebAutomation.ExtractData.ExtractTableInExcel BrowserInstance: Browser Control: $'''html > body > div:eq(1) > div:eq(2) > div > div > div:eq(0) > div > div > div:eq(1) > div:eq(0) > div:eq(0) > div''' ExtractionParameters: {[$'''div > div:eq(1) > div > a:eq(1) > span > div''', $'''Own Text''', $'''''', $'''Value #1'''], [$'''div > div:eq(1) > div > div:eq(1) > div > a > span''', $'''Own Text''', $'''''', $'''Value #2'''] } PostProcessData: False TimeoutInSeconds: 60 ExcelInstance=> ExcelInstance
+WebAutomation.CloseWebBrowser BrowserInstance: Browser
+Excel.InsertRow Instance: ExcelInstance Index: 1
+Excel.WriteToExcel.WriteCell Instance: ExcelInstance Value: $'''Book Name''' Column: $'''A''' Row: 1
+Excel.WriteToExcel.WriteCell Instance: ExcelInstance Value: $'''Ratings''' Column: $'''B''' Row: 1
